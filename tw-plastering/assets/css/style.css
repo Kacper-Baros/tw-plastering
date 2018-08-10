@@ -1,0 +1,374 @@
+.calender-wrapper .main-container{
+    background-color: white;
+    max-width: 100%;
+    padding: 0 50px;
+    margin:0 auto;
+    padding-top: 30px;
+}
+
+.show-hide-mode-wrapper {
+    width: 12%;
+    float: left;
+
+}
+
+
+@media print {
+    .no-print {
+        display: none;
+    }
+}
+
+.fc-content {
+    font-size: 18px;
+    font-weight: 900;
+    padding: 7px 10px;
+}
+
+.fc-unthemed th,
+.fc-unthemed td {
+    border-right: 2px solid black;
+}
+
+.builder-row li {
+    border: 1px solid #C7CFD7;
+    list-style: none;
+    padding: 7px;
+}
+
+.calender-main-wrapper {
+    width: 88%;
+    float: left;
+}
+
+.jspedit-item:hover {
+    color: #167EB2;
+}
+
+.show-hide-mode-wrapper .show-hide-group {
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.show-hide-group .list_title {
+    padding-bottom: 20px;
+}
+
+.show-hide-group .list__item__value {
+    padding-bottom: 10px;
+}
+
+.show-hide-group .checkbox-wrapper {
+    float: right;
+}
+
+.calender-main-wrapper {
+    padding-left: 30px;
+}
+
+.btn-xs, .btn-group-xs>.btn {
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+oi-select .select-search {
+    border-radius: 0!important;
+}
+
+.icons_actions {
+    float: right;
+    margin-top: -60px;
+}
+
+#print_icon {
+    font-size: 20px;
+    margin-left: 80px;
+}
+
+#pdf_icon {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+oi-select.focused {
+
+}
+
+oi-select.open .select-search {
+    border-radius: 0;
+}
+
+oi-select.focused .select-search  {
+    box-shadow: none;
+}
+
+oi-select .select-dropdown {
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.fc-button-group button {
+    background-color: #f2f2f2;
+    color: #465e78;
+    font-weight: 400;
+}
+
+.fc-state-default.fc-corner-left {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-left:1px solid #c7cfd7;;
+}
+
+
+.fc-state-default.fc-corner-right {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.fc-state-default {
+    border-right: 1px solid #c7cfd7;
+    border-bottom: 1px solid #c7cfd7;
+    border-top: 1px solid #c7cfd7;
+}
+
+.fc-button-group button {
+    box-shadow: none!important;
+    background-image: none!important;
+    padding: 0 30px;
+}
+
+.fc-button-group .fc-state-active {
+    background-color: #e6e6e6;
+}
+
+.fc-left .fc-prev-button {
+    background-color: white!important;
+    background-image: none!important;
+}
+
+.fc-left .fc-next-button {
+    background-color: white!important;
+    background-image: none!important;
+}
+
+.fc-day-grid-event.fc-h-event.fc-event.fc-start.fc-end {
+    border-radius: 0;
+}
+
+.fc-day-grid-event.fc-h-event.fc-event.fc-start.fc-not-end {
+    border-radius: 0;
+}
+
+.fc-content .fc-time {
+    display: none;
+}
+
+.fc-myCustomButton-button {
+    box-shadow: none!important;
+    background-image: none!important;
+    padding: 0 25px!important;
+}
+
+.fc-myCustomButton-button:after {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 90%;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    content: "\f0d7";
+    padding-left: 5px;
+}
+
+.my_modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #F1F4F5; /* Fallback color */
+    background-color: rgba(255, 255, 255,0.6); /* Black w/ opacity */
+
+}
+#modal-popup.my_modal {
+    padding-top: 250px;
+}
+#modal-popup-contractor.my_modal {
+    padding-top: 200px;
+}
+
+#modal-popup-contractor .modal-content {
+    width: 900px;
+}
+#popup_job {
+    padding-top: 400px;
+}
+.modal-content {
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    width: 900px;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-weight: normal;
+    font-size: 28px;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#popup_job .modal-content{
+    width: 400px;
+}
+
+#modal-popup-2 .modal-content {
+    width: 400px;
+}
+
+#modal-popup-2 {
+    padding-top: 300px;
+}
+
+#popup_job button {
+    width: 100%;
+}
+
+#popup_job button:hover {
+    color: white!important;
+}
+
+#popup_job .row div:not(:first-child) {
+    padding-left: 10px;
+}
+
+.button-group {
+    margin-top: 30px;
+}
+
+.button-group2 {
+    margin-top: 30px;
+}
+
+.button-group div:not(:first-child) button {
+    background-color: #f2f2f2;
+    color: #2f4d6b
+}
+
+#popup_job .section-title div {
+    background-color: green;
+    display: inline-block;
+    line-height: 18px;
+    width: 18px;
+    height: 18px;
+    position: relative;
+    margin-right: 6px;
+}
+
+#popup_job .section-title div:before {
+    color: white;
+    font-size: 16px;
+    top: -3px;
+    left: 4px;
+    position: absolute;
+}
+
+.hint {
+    color: #a7a7a7;
+}
+
+
+#popup_job .date{
+    margin-bottom: 20px;
+    color: #2f4d6b;
+}
+
+.edit_input{
+    padding: 0;
+    max-width: 120px;
+    border: none;
+    border-bottom: 1px solid #1ea9f0;
+    color: #167EB2
+}
+
+.submit_label {
+    color: green;
+    padding-left: 30px;
+    font-weight: bold;
+}
+
+.datepicker {
+    border-radius: 0px!important;
+}
+
+.k-widget.k-colorpicker {
+    margin-bottom: 3px;
+    background: none;
+    margin-right: 10px;
+}
+
+.k-picker-wrap {
+    font-size: 9px;
+    border-radius: 0!important;
+    background-color: white!important;
+    border-width: 0!important;
+    background-color: red!important;
+}
+
+.k-selected-color {
+    display: none!important;
+}
+
+.k-selected-color-display {
+    display: none;
+}
+
+.k-button {
+    font-size: 15px!important;
+
+}
+
+.k-select {
+    border-radius: 0!important;
+    border-left-width: 0!important;
+}
+
+.k-icon:before {
+    color: white;
+}
+
+.list.col-md-3.col-md-offset-1 {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.list.col-md-3.col-md-offset-1:not(:first-child):before {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 60%;
+    top: 30px;
+    left: -30px;
+    background-color: #F1F4F5;
+}
+
+
+.modal-content label.symbol {
+    width: 20px;
+    text-align: center;
+    line-height: 25px;
+}
+
+.form-group1 {
+    margin-bottom: 5px;
+}

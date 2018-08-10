@@ -1,0 +1,218 @@
+<!-- tab -->
+<div class="wrapper">
+    <div class="job-tabs__tab" id="tabs-1">
+        <div class="row">
+
+            <!-- left side of the form -->
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="content-block" id="content-jobs">
+                    <h2 class="section-title">Jobs</h2>
+
+                    <div class="form-col employe-column">
+
+                        <div class="row" style="margin-bottom: 25px;">
+                            <div class="col-xs-12 col-sm-9">
+                                <button class="button small-pd" ng-click="go_jobs()"><span class="plus">+</span>ADD NEW
+                                    JOB
+                                </button>
+                            </div>
+                        </div><!-- end row -->
+
+                        <div class="row">
+                            <div class="list col-md-6" style="margin-left: 8px;border-right: 1px solid #d0cccc;">
+                                <p class="list__title">Current</p>
+                                <ul>
+                                    <table>
+                                        <tr ng-repeat="job in jobs" class="list__item"
+                                            ng-show="job.job_type == 'New job'">
+                                            <td><a href="" class="list__item__value" ng-click="go_edit_job($index)">{{job.address}}</a>
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </ul>
+                            </div>
+                            <div class="list col-md-5" style="margin-left: 20px;">
+                                <p class="list__title">Quoted</p>
+                                <ul>
+                                    <table>
+                                        <tr ng-repeat="job in jobs" class="list__item"
+                                            ng-show="job.job_type == 'Quoted'">
+                                            <td><a href="" class="list__item__value" ng-click="go_edit_job($index)">{{job.address}}</a>
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </ul>
+                            </div>
+                            <!--<div class="list col-md-3 col-md-offset-1">-->
+                            <!--<p class="list__title">Completed</p>-->
+                            <!--<ul>-->
+                            <!--<table>-->
+                            <!--<tr ng-repeat="job in jobs" class="list__item" ng-show="job.job_type == 'Completed'">-->
+                            <!--<td><a href="" class="list__item__value" ng-click="go_edit_job($index)">{{job.address}}</a>-->
+                            <!--</td>-->
+                            <!--<td>-->
+                            <!--</td>-->
+                            <!--</tr>-->
+                            <!--</table>-->
+                            <!--</ul>-->
+                            <!--</div>-->
+                        </div><!-- end list -->
+
+                    </div> <!-- end form column -->
+                </div>
+            </div><!-- end left side of the form -->
+
+
+            <!-- right side of the form -->
+            <div class="col-xs-12 col-sm-12 col-md-6">
+                <div class="content-block" id="content-chat" style="overflow-y: overlay;">
+                    <div class="row" style="margin-left:0; height:40px;">
+                        <div class="col-xs-12 col-sm-12 col-lg-6 col-md-6 left" style="padding-left:0px;">
+                            <h2 class="section-title message-title">Daily Chat</h2>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-lg-6 col-md-6 pull-right" style="position: relative;">
+                        
+                            <input data-provide="datepicker" id="currentDate" name="currentDate"
+                                   class="form-control datepicker" ng-model="currentDate"><i class="fa fa-calendar-o" style="position:absolute; left:185px; top: 7px;"></i></input>
+                        </div>
+                    </div>
+                    <td class="form-col">
+
+                        <div class="list" ng-controller="Dashboard_controller">
+
+                            <div class="col-xs-12 col-sm-12" style="padding:0px;">
+                                <h2 style="float: left;">{{uName}}</h2>
+                                <button class="button small-pd" ng-click="savehour()" style="float: right;" ng-disabled="isDisabled">save</button>
+                                <div style="float: right; margin-right:12px; height: 32px;" ng-disabled="isDisabled">
+	                                <select id="spenthours" style="margin-top:5px;">
+	                                    <option value="0">0</option>
+	                                    <option value="1">1</option>
+	                                    <option value="2">2</option>
+	                                    <option value="3">3</option>
+	                                    <option value="4">4</option>
+	                                    <option value="5">5</option>
+	                                    <option value="6">6</option>
+	                                    <option value="7">7</option>
+	                                    <option value="8">8</option>
+	                                    <option value="9">9</option>
+	                                    <option value="10">10</option>
+	                                    <option value="11">11</option>
+	                                    <option value="12">12</option>
+	                                    <option value="13">13</option>
+	                                    <option value="14">14</option>
+	                                    <option value="15">15</option>
+	                                    <option value="16">16</option>
+	                                    <option value="17">17</option>
+	                                    <option value="18">18</option>
+	                                    <option value="19">19</option>
+	                                    <option value="20">20</option>
+	                                </select>
+                                </div>
+                                <span style="float: right; margin-right:12px; font-size:22px; margin-top: 3px;">Hours</span>
+                            </div>
+                            <br>
+                            <div class="row" style="float:left;">
+                                <div class="col-xs-12 col-sm-12">
+                                    <div class="form-group">
+                                        <textarea cols="50" rows="4" ng-model="newMessage" required ng-disabled="isDisabled"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-9">
+                                    <button class="button small-pd" ng-click="sendMessage()" ng-disabled="isDisabled">Send Message
+                                    </button>
+                                </div>
+                            </div>
+
+                            <ul style="float:left; width:100%;">
+                            	<div style="overflow-y: overlay; height:120px; margin-top:12px;">
+                                <table style="width: 100%">
+                                    <tr ng-repeat="message in messages" class="list__item">
+                                        <td>
+                                            <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom:15px;">
+                                                <h2>{{message.sent_by}}</h2>
+                                                <div style="font-size: 13px; text-align: right;margin-right: -90px;">
+                                                    <span style="color: darkgray">{{message.created_time}} </span>
+                                                    <span>{{message.created_date}}</span>
+                                                </div>
+                                                <a href="" ng-if="message.sent_by === uName" ng-click="deleteMessage(message.id)" style="margin-right:30px;"><i style="color:#1ea9f0" class="fa fa-trash"></i></a>
+                                            </div>
+                                            <p>{{message.msg}}</p>
+
+                                        </td>
+                                    </tr>
+                                    <br>
+                                </table>
+                                </div>
+
+                            </ul>
+
+                        </div> <!-- end list -->
+
+
+                </div>  <!-- end form column -->
+
+            </div>
+            <div class="content-block" style="display: none">
+                <h2 class="section-title contractor-title">Employees / Contractors </h2>
+
+                <div class="form-col contractor-column">
+
+
+                    <div class="row" style="margin-bottom: 25px;">
+
+                        <div class="col-xs-12 col-sm-9">
+                            <button class="button small-pd" ng-click="go_emp_constractor()"><span
+                                    class="plus">+</span>ADD EMPLOYEES /
+                                CONTRACTORS
+                            </button>
+                        </div>
+                    </div><!-- end row -->
+                    <div class="list" ng-controller="Employee_controller">
+                        <p class="list__title">Employees</p>
+                        <ul>
+                            <table>
+                                <tr ng-repeat="employee in employees" class="list__item">
+                                    <td><a href="" class="list__item__value"
+                                           ng-click="edit_employee_name($event, $index)">{{employee.employee_name}}</a>
+                                    </td>
+                                    <td><span class="list__item__controls">
+                                            <button class="delete-button js-delete-item"
+                                                    ng-click="delete_employee_by_index($index)">X</button>
+                                            </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </ul>
+                    </div> <!-- end list -->
+
+                    <div class="list" ng-controller="Constractor_controller">
+                        <p class="list__title">Contractors</p>
+                        <ul>
+                            <table>
+                                <tr ng-repeat="constractor in constractors" class="list__item">
+                                    <td><a href="" class="list__item__value"
+                                           ng-click="edit_constractor_name($event, $index)">{{constractor.constractor_name}}</a>
+                                    </td>
+                                    <td><span class="list__item__controls">
+                                            <button class="delete-button js-delete-item"
+                                                    ng-click="delete_constractor_by_index($index)">X</button>
+                                            </span>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </ul>
+                    </div> <!-- end list -->
+
+
+                </div>  <!-- end form column -->
+            </div>
+        </div><!-- end right side of the form -->
+
+    </div>  <!-- end row -->
+</div> <!-- end tab -->
+</div>

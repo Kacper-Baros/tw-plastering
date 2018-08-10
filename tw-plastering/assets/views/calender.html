@@ -1,0 +1,177 @@
+<div class="calender-wrapper">
+    <div class="main-container row">
+        <div class="show-hide-mode-wrapper">
+            <div class="show-hide-title show-hide-group">
+                <h2 class="section-title">Calender</h2>
+            </div>
+
+            <div class="show-hide show-hide-group">
+                <p class="list_title label">Show/Hide</p>
+                <ul>
+                    <li class="list__item">
+                        <label class="list__item__value">All</label>
+                        <label class="control control--checkbox checkbox-wrapper">
+                            <input type="checkbox" checked="checked" ng-model="check_all"
+                                   ng-click="changed_check_all()"/>
+                            <div class="control__indicator"></div>
+                        </label>
+
+                    </li>
+                    <li class="list__item">
+                        <label class="list__item__value">Current Jobs</label>
+                        <label class="control control--checkbox checkbox-wrapper">
+                            <input type="checkbox" checked="checked" ng-model="check_current_job"
+                                   ng-click="filterJob()"/>
+                            <div class="control__indicator"></div>
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="list__item__value">Completed Jobs</label>
+                        <label class="control control--checkbox checkbox-wrapper">
+                            <input type="checkbox" checked="checked" ng-model="check_completed_job"
+                                   ng-click="filterJob()"/>
+                            <div class="control__indicator"></div>
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="list__item__value">Quoted Jobs</label>
+                        <label class="control control--checkbox checkbox-wrapper">
+                            <input type="checkbox" checked="checked" ng-model="check_quoted_job"
+                                   ng-click="filterJob()"/>
+                            <div class="control__indicator"></div>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="assigned-mode show-hide-group">
+                <p class="list_title label">Assigned</p>
+                <ul>
+                    <li class="list__item">
+                        <label class="list__item__value">Employees</label>
+                        <label class="control control--checkbox checkbox-wrapper">
+                            <input type="checkbox" checked="checked" ng-model="check_assign_employee"
+                                   ng-click="filterJob()"/>
+                            <div class="control__indicator"></div>
+                        </label>
+                    </li>
+                    <li class="list__item">
+                        <label class="list__item__value">Contractors</label>
+                        <label class="control control--checkbox checkbox-wrapper">
+                            <input type="checkbox" checked="checked" ng-model="check_assign_constractor"
+                                   ng-click="filterJob()"/>
+                            <div class="control__indicator"></div>
+                        </label>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="employee-mode show-hide-group">
+                <p class="list_title label">Employee</p>
+                <ul>
+                    <li class="list__item" ng-repeat="employee in employees">
+                        <label class="list__item__value">{{employee.employee_name}}</label>
+                        <label class="control control--checkbox checkbox-wrapper">
+                            <input type="checkbox" checked="checked" ng-model="employee.checked"
+                                   ng-click="filterJob()"/>
+                            <div class="control__indicator"></div>
+                        </label>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="calender-main-wrapper">
+            <div id="calendar"></div>
+        </div>
+    </div>
+    <div class="dashboard-footer">
+
+    </div>
+
+</div>
+<div class="my_modal" id="popup_job">
+    <div class="modal-content zoom-anim-dialog popup">
+        <span class="close">&times;</span>
+
+        <h2 class="section-title" style="margin-bottom: 17px">
+            <input id="colorpicker" type="color"/>
+            {{street_address}}
+        </h2>
+
+        <span class="hint">when</span><br>
+        <h3 class="date"><span class="start_date">{{start_date}}</span> - <span class="end_date">{{end_date}}</span></h3>
+
+        <span class="hint">Assign(+)</span>
+        <div class="row" style="padding-top: 5px;">
+            <div class="col-md-8">
+                <span class="select">
+                    <select name="assign" class="form-control form-control-select" ng-model="assign">
+                        <option value="" disabled selected>Select Employee</option>
+                        <option ng-repeat="employee in availableEmployees" value="{{employee.employee_id}}">{{employee.employee_name}}</option>
+                    </select>
+                </span>
+            </div>
+            <div class="col-md-4">
+                <button class="button" id="add-button" ng-click="add_employee()">+ Add</button>
+            </div>
+        </div>
+
+            <div class="list">
+                <p class="list__title">Contractors</p>
+                <ul>
+                    <table>
+                        <tr ng-if="jobbing_constractors.length === 0">
+                            <td>No contractor added</td>
+                        </tr>
+                        <tr ng-repeat="constractor in jobbing_constractors" class="list__item">
+                            <td>
+                                <a class="constractor_button" href="" ng-click="edit_cons($index)">
+                                    {{constractor.constractor_name}}
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </ul>
+            </div>
+
+        <div class="row button-group">
+            <div class="col-md-4">
+                <button class="button" id="edit-button" ng-click="edit_job()">Edit job</button>
+            </div>
+            <div class="col-md-4">
+                <button class="button" id="completed-button" style="background-color: #f2f2f2; color: #2f4d6b" ng-click="completed_job()">COMPLETE</button>
+            </div>
+            <div class="col-md-4" ng-click="om()">
+                <button class="button" style="background-color: #f2f2f2; color: #2f4d6b">DELETE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modal-delete" class="my_modal">
+    <div class="zoom-anim-dialog popup modal-content">
+        <span class="close">&times;</span>
+        <h2 class="section-title">Warning</h2>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-3"></div>
+            <div class="col-xs-12 col-sm-8">
+                <h3>Are you sure you want to delete this job?</h3>
+            </div>
+        </div>
+        <br>
+        <div class="row button-group2">
+            <div class="col-md-4 col-md-offset-2">
+                <button class="button large-pd" ng-click="hm()">Cancel</button>
+            </div>
+            <div class="col-md-4 col-md-offset-2">
+                <button class="button large-pd" ng-click="delete_job()">Delete
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
